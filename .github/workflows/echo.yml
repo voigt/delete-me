@@ -69,10 +69,12 @@ jobs:
     - name: Create release text
       run: |
         cd ${{ env.working-directory }}
-        echo "actor-name=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].name')" >> $GITHUB_ENV
-        echo "actor-version=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].version')" >> $GITHUB_ENV
+        pwd
+        ls -lah
+        export actor-name=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].name')
+        export actor-version=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].version')
         export claims=$(wash claims inspect build/*_s.wasm)
-        echo "Your actor can be accessed at \`ghcr.io/${{ env.registry }}-${{ env.actor-name }}:${{ env.actor-version }}\`" >> ../release.txt
+        echo "Your actor can be accessed at \`ghcr.io/${{ env.registry }}-${actor-name}:${actor-version}\`" >> ../release.txt
         echo "Claims information:" >> ../release.txt
         echo "\`\`\`" >> ../release.txt
         echo "${claims}" >> ../release.txt
