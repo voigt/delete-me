@@ -59,6 +59,8 @@ jobs:
     needs: build_artifact
     runs-on: ubuntu-20.04
     steps:
+    - uses: actions/checkout@v2
+    - uses: wasmcloud/common-actions/install-wash@main
     - name: Download signed actor
       uses: actions/download-artifact@v2
       with:
