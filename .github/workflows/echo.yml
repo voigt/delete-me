@@ -9,8 +9,8 @@ on:
     # - 'echo-v*'
   pull_request:
     branches: [ main ]
-    paths:
-    - "echo/**"
+    # paths:
+    # - "echo/**"
 
 env:
   CARGO_TERM_COLOR: always
