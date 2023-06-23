@@ -15,7 +15,7 @@ on:
 env:
   CARGO_TERM_COLOR: always
   working-directory: ./echo
-  WASH_ISSUER_KEY: ${{ secrets.WASMCLOUD_ACCOUNT_OFFICIAL }}
+  WASH_ISSUER_KEY: ${{ secrets.WASH_ISSUER_KEY }}
   WASH_SUBJECT_KEY: ${{ secrets.WASMCLOUD_ECHO }}
 
 jobs:
