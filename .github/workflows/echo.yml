@@ -3,10 +3,10 @@ name: ECHO
 on:
   push:
     branches: [ main ]
-    paths:
-    - "echo/**"
-    tags:
-    - 'echo-v*'
+    # paths:
+    # - "echo/**"
+    # tags:
+    # - 'echo-v*'
   pull_request:
     branches: [ main ]
     paths:
