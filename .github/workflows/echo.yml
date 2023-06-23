@@ -71,10 +71,10 @@ jobs:
         cd ${{ env.working-directory }}
         pwd
         ls -lah
-        export actor-name=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].name')
-        export actor-version=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].version')
+        export actor_name=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].name')
+        export actor_version=$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[].version')
         export claims=$(wash claims inspect build/*_s.wasm)
-        echo "Your actor can be accessed at \`ghcr.io/${{ env.registry }}-${actor-name}:${actor-version}\`" >> ../release.txt
+        echo "Your actor can be accessed at \`ghcr.io/${{ env.registry }}-${actor_name}:${actor_version}\`" >> ../release.txt
         echo "Claims information:" >> ../release.txt
         echo "\`\`\`" >> ../release.txt
         echo "${claims}" >> ../release.txt
